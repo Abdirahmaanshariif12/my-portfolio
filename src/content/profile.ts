@@ -6,12 +6,14 @@
 
 export const profile = {
   name: "Abdirahmaan Shariif Elmi Nour",
+  brand: "Shariifka",
+  siteUrl: "https://shariifka.vercel.app",
   title: "Information Technology Student",
   summary:
     "I am an Information Technology student passionate about learning technology and exploring practical IT solutions.",
-  metaTitle: "Abdirahmaan Shariif Elmi Nour | IT Student Portfolio",
+  metaTitle: "Shariifka | Abdirahmaan Shariif Elmi Nour",
   metaDescription:
-    "Portfolio of Abdirahmaan Shariif Elmi Nour, an Information Technology student at Mogadishu University pursuing a Bachelor's degree in Information Technology.",
+    "Shariifka is the personal portfolio of Abdirahmaan Shariif Elmi Nour, an Information Technology student at Mogadishu University.",
   /**
    * Local photo in the public folder. If this file is missing, the hero
    * shows the initials placeholder instead of a broken image.

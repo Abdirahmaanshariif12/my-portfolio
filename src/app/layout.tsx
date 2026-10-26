@@ -14,8 +14,44 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(profile.siteUrl),
   title: profile.metaTitle,
   description: profile.metaDescription,
+  applicationName: profile.brand,
+  authors: [{ name: profile.name, url: profile.siteUrl }],
+  creator: profile.name,
+  publisher: profile.brand,
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  openGraph: {
+    title: profile.metaTitle,
+    description: profile.metaDescription,
+    url: profile.siteUrl,
+    siteName: profile.brand,
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: profile.photoSrc,
+        alt: profile.photoAlt,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: profile.metaTitle,
+    description: profile.metaDescription,
+    images: [profile.photoSrc],
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
