@@ -13,15 +13,19 @@ export const profile = {
   metaDescription:
     "Portfolio of Abdirahmaan Shariif Elmi Nour, an Information Technology student at Mogadishu University pursuing a Bachelor's degree in Information Technology.",
   /**
-   * Optional photo. Leave this empty to keep the placeholder.
-   * To use a photo, add the file to the public folder (for example public/profile.jpg)
-   * and set this to "/profile.jpg".
+   * Local photo in the public folder. If this file is missing, the hero
+   * shows the initials placeholder instead of a broken image.
    */
-  photoSrc: "",
+  photoSrc: "/profile.jpg",
   photoAlt: "Profile photo of Abdirahmaan Shariif Elmi Nour",
   email: "shariifabdirahmaan67@gmail.com",
   githubUsername: "abdirahmaanshariif12",
   githubUrl: "https://github.com/abdirahmaanshariif12",
+  /**
+   * Replace this WhatsApp link with your number.
+   * The number is the digits after https://wa.me/
+   */
+  whatsappUrl: "https://wa.me/252686367152",
   university: "Mogadishu University",
   about: {
     paragraphs: [

@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail } from "lucide-react";
+import { Mail, MessageCircle } from "lucide-react";
 import { FormEvent, useState } from "react";
 import { GitHubIcon } from "@/components/GitHubIcon";
 import { Section } from "@/components/Section";
@@ -62,6 +62,16 @@ export function Contact() {
               {" "}
               profile for {profile.githubUsername} (opens in a new tab)
             </span>
+          </a>
+          <a
+            href={profile.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-line bg-white px-5 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary"
+          >
+            <MessageCircle className="h-4 w-4" aria-hidden="true" />
+            WhatsApp
+            <span className="sr-only"> (opens in a new tab)</span>
           </a>
         </div>
 
@@ -125,8 +135,8 @@ export function Contact() {
               role="status"
               className="mt-4 rounded-2xl bg-primary-soft px-4 py-3 text-sm leading-6 text-foreground"
             >
-              Nothing was sent or saved. Use the email address or GitHub link
-              to get in touch.
+              Nothing was sent or saved. Use the email address, WhatsApp link,
+              or GitHub link to get in touch.
             </p>
           ) : null}
         </form>

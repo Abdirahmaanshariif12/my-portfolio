@@ -1,22 +1,9 @@
-import { ArrowRight, User } from "lucide-react";
-import Image from "next/image";
+import { ArrowRight, MessageCircle } from "lucide-react";
 import { Container } from "@/components/Container";
+import { ProfilePhoto } from "@/components/ProfilePhoto";
 import { profile } from "@/content/profile";
 
-function photoInitials(name: string) {
-  const parts = name.split(/\s+/).filter(Boolean);
-  if (parts.length === 0) {
-    return "";
-  }
-  if (parts.length === 1) {
-    return parts[0].slice(0, 2).toUpperCase();
-  }
-  return `${parts[0][0]}${parts[parts.length - 1][0]}`.toUpperCase();
-}
-
 export function Hero() {
-  const hasPhoto = profile.photoSrc.trim().length > 0;
-
   return (
     <section
       id="top"
@@ -47,7 +34,7 @@ export function Hero() {
           <p className="mt-5 max-w-xl text-base leading-7 text-muted sm:text-lg">
             {profile.summary}
           </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <a
               href="#projects"
               className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-primary px-5 text-sm font-semibold text-white transition-colors hover:bg-primary-dark"
@@ -61,44 +48,22 @@ export function Hero() {
             >
               Contact Me
             </a>
+            <a
+              href={profile.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-line bg-white px-5 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary"
+            >
+              <MessageCircle className="h-4 w-4" aria-hidden="true" />
+              WhatsApp
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
           </div>
         </div>
 
-        <figure className="animate-rise mx-auto w-full max-w-sm [animation-delay:120ms]">
-          <div className="rounded-[2rem] border border-line bg-primary-soft p-3 shadow-[0_20px_50px_-32px_rgba(37,99,235,0.9)]">
-            {hasPhoto ? (
-              <div className="relative aspect-square overflow-hidden rounded-[1.4rem] bg-white">
-                <Image
-                  src={profile.photoSrc}
-                  alt={profile.photoAlt}
-                  fill
-                  priority
-                  sizes="(min-width: 1024px) 360px, 80vw"
-                  className="object-cover"
-                />
-              </div>
-            ) : (
-              <div className="flex aspect-square flex-col items-center justify-center rounded-[1.4rem] border border-dashed border-primary/35 bg-white px-6 text-center">
-                <span className="flex h-20 w-20 items-center justify-center rounded-full bg-primary-soft text-primary">
-                  <User className="h-8 w-8" aria-hidden="true" />
-                </span>
-                <p className="mt-5 text-3xl font-semibold tracking-tight text-primary">
-                  {photoInitials(profile.name)}
-                </p>
-                <p className="mt-2 text-sm font-semibold text-foreground">
-                  Profile photo
-                </p>
-                <p className="mt-1 text-sm leading-6 text-muted">
-                  Add public/profile.jpg, then set photoSrc to
-                  &quot;/profile.jpg&quot;.
-                </p>
-              </div>
-            )}
-          </div>
-          <figcaption className="sr-only">
-            {hasPhoto ? profile.photoAlt : "Profile photo placeholder"}
-          </figcaption>
-        </figure>
+        <div className="animate-rise [animation-delay:120ms]">
+          <ProfilePhoto />
+        </div>
       </Container>
     </section>
   );

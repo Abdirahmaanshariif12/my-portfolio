@@ -1,3 +1,4 @@
+import { MessageCircle } from "lucide-react";
 import { Container } from "@/components/Container";
 import { GitHubIcon } from "@/components/GitHubIcon";
 import { profile } from "@/content/profile";
@@ -27,6 +28,16 @@ export function Footer() {
           >
             <GitHubIcon />
             GitHub
+            <span className="sr-only"> (opens in a new tab)</span>
+          </a>
+          <a
+            href={profile.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 font-medium text-foreground underline decoration-primary/30 underline-offset-4"
+          >
+            <MessageCircle className="h-4 w-4" aria-hidden="true" />
+            WhatsApp
             <span className="sr-only"> (opens in a new tab)</span>
           </a>
         </div>
